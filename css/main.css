@@ -1,2 +1,86 @@
 @charset 'utf-8';
 @import url(reset.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+/* 변수 */
+:root {
+  --txt-color: #1B1C1C;
+  --white: #fff;
+  --primary: #F40009;
+  --container : 1920px;
+}
+
+/* LAYOUT */
+.container {
+  width: var(--container); 
+  margin: 0 auto;
+}
+
+/* HEADER */
+.main_banner {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+}
+.main_banner .bg_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1080px;
+}
+.main_banner .bg_video:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: rgba(0,0,0,.7);
+}
+.main_banner .bg_video video{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top_nav nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.top_nav nav > ul {
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  line-height: 20px;
+  margin-top: 40px;
+  font-family: 'Spoqa Han Sans Neo';
+  font-weight: 400;
+  color: var(--white);
+}
+.top_nav nav > ul li:hover {
+  color: var(--primary);
+  font-weight: 700;
+}
+.top_nav nav ul > li:after {
+  content: '>';
+  margin-left: 5px;
+}
+.top_nav nav .logo a {
+  background: url(/img/Header_Top_LOGO_white.svg) no-repeat;
+  display: block;
+  text-indent: -9999em;
+  width: 370px;
+  height: 60px;
+  margin: 0 auto;
+}
+.top_nav nav ul li ul {
+  display: none;
+}
