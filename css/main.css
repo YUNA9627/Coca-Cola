@@ -74,7 +74,7 @@
   margin-left: 5px;
 }
 .top_nav nav .logo a {
-  background: url(/img/Header_Top_LOGO_white.svg) no-repeat;
+  background: url(../img/Header_Top_LOGO_white.svg) no-repeat;
   display: block;
   text-indent: -9999em;
   width: 370px;
