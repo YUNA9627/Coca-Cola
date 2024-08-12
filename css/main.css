@@ -7,7 +7,7 @@
   --txt-color: #1B1C1C;
   --white: #fff;
   --primary: #F40009;
-  --container : 1920px;
+  --container : 1400px;
 }
 
 /* LAYOUT */
@@ -20,21 +20,29 @@
 .main_banner {
   position: relative;
   width: 100%;
-  height: 1080px;
+  height: 100vh;
+}
+
+.main_banner .bg_wave {
+  background: url(../img/Line.svg) no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 243px;
+  bottom: 160px;
 }
 .main_banner .bg_video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 1080px;
+  height: 100vh;
 }
 .main_banner .bg_video:after {
   position: absolute;
   width: 100%;
   height: 100%;
   content: '';
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.85);
 }
 .main_banner .bg_video video{
   position: absolute;
@@ -72,6 +80,11 @@
 .top_nav nav ul > li:after {
   content: '>';
   margin-left: 5px;
+  position: absolute;
+  transform: rotate(0);
+}
+.top_nav nav ul > li:hover:after {
+  transform: rotate(90deg);
 }
 .top_nav nav .logo a {
   background: url(../img/Header_Top_LOGO_white.svg) no-repeat;
