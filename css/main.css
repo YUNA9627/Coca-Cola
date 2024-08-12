@@ -31,7 +31,9 @@ body {
   top: 0;
   z-index: 10;
   height: 120px;
-  margin-top: 20px;
+  background: rgba(255,255,255,.0);
+  padding-top: 20px;
+  transition: 0.3s ease-out;
 }
 .top_nav > div {
   display: flex;
@@ -51,11 +53,11 @@ body {
   line-height: 20px;
   font-weight: 400;
 }
-.top_nav nav > ul li:hover {
+.top_nav nav ul > li:hover {
   color: var(--primary);
   font-weight: 700;
 }
-.top_nav nav ul > li:after {
+.top_nav nav > ul > li:after {
   content: '>';
   margin-left: 5px;
   position: absolute;
@@ -68,13 +70,22 @@ body {
   width: 370px;
   height: 60px;
 }
+
 .top_nav nav ul li ul {
-  display: none;
+  position: absolute;
 }
+
 .top_nav div.shrink {
   display: flex;
   flex-direction: row;
   gap: 180px;
+  padding: 20px;
+}
+.top_nav.shrink {
+  background: rgba(255,255,255,1);
+  height: 80px;
+  padding-top: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
 }
 .top_nav nav.shrink {
   color: var(--txt-color);
