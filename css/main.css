@@ -23,12 +23,12 @@
   height: 100vh;
 }
 
-.main_banner .bg_wave {
-  background: url(../img/Line.svg) no-repeat;
+.main_banner .bg_wave img {
   position: absolute;
   width: 100%;
   height: 243px;
   bottom: 160px;
+  object-fit: cover;
 }
 .main_banner .bg_video {
   position: absolute;
