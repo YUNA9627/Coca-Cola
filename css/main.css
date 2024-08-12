@@ -10,6 +10,11 @@
   --container : 1400px;
 }
 
+/* 폰트 */
+body {
+  font-family: 'Spoqa Han Sans Neo';
+}
+
 /* LAYOUT */
 .container {
   width: var(--container); 
@@ -17,18 +22,65 @@
 }
 
 /* HEADER */
+body {
+  background: #EAEAE9;
+}
+.top_nav {
+  width: 100%; 
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  height: 120px;
+  margin-top: 20px;
+}
+.top_nav > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+.top_nav nav {
+  color: var(--white);
+}
+.top_nav nav > ul {
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.top_nav nav > ul li:hover {
+  color: var(--primary);
+  font-weight: 700;
+}
+.top_nav nav ul > li:after {
+  content: '>';
+  margin-left: 5px;
+  position: absolute;
+  transform: rotate(0);
+}
+.top_nav nav ul > li:hover:after {
+  transform: rotate(90deg);
+}
+.top_nav #logo {
+  width: 370px;
+  height: 60px;
+}
+.top_nav nav ul li ul {
+  display: none;
+}
+.top_nav > div.shrink {
+  display: flex;
+  flex-direction: row;
+  gap: 180px;
+}
+
 .main_banner {
   position: relative;
   width: 100%;
   height: 100vh;
-}
-
-.main_banner .bg_wave img {
-  position: absolute;
-  width: 100%;
-  height: 243px;
-  bottom: 160px;
-  object-fit: cover;
 }
 .main_banner .bg_video {
   position: absolute;
@@ -50,50 +102,60 @@
   height: 100%;
   object-fit: cover;
 }
-
-.top_nav nav {
+.main_banner .bg_wave img {
+  position: absolute;
   width: 100%;
+  height: 243px;
+  bottom: 160px;
+  object-fit: cover;
+}
+.main_banner .coca-cola img {
   position: absolute;
-  top: 0;
+  bottom: -20px;
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
+  transform: rotate(20deg) translate(-50%, 0);
+  width: 580px;
+  height: 704px;
+  z-index: 1;
+  filter: drop-shadow(-20px 20px 80px #000);
 }
-.top_nav nav > ul {
-  display: flex;
-  gap: 120px;
-  justify-content: center;
-  text-align: center;
-  font-size: 18px;
-  line-height: 20px;
-  margin-top: 40px;
-  font-family: 'Spoqa Han Sans Neo';
-  font-weight: 400;
-  color: var(--white);
-}
-.top_nav nav > ul li:hover {
-  color: var(--primary);
-  font-weight: 700;
-}
-.top_nav nav ul > li:after {
-  content: '>';
-  margin-left: 5px;
+.main_banner .text-left img {
   position: absolute;
-  transform: rotate(0);
+  right: 50%;
+  transform: translateX(-20px);
+  bottom: 350px;
+  filter: drop-shadow(-20px 20px 80px #000);
 }
-.top_nav nav ul > li:hover:after {
-  transform: rotate(90deg);
+.main_banner .text-right img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(90px);
+  bottom: 350px;
+  z-index: 2;
+  filter: drop-shadow(-20px 20px 80px #000);
 }
-.top_nav nav .logo a {
-  background: url(../img/Header_Top_LOGO_white.svg) no-repeat;
+
+
+/* BRAND */
+.brand {
+  margin-top : 350px;
+}
+.brand:after {
+  content: '';
   display: block;
-  text-indent: -9999em;
-  width: 370px;
-  height: 60px;
-  margin: 0 auto;
+  background: var(--white);
+  width: 100%;
+  height: 460px;
 }
-.top_nav nav ul li ul {
-  display: none;
+.brand h1 {
+  font-size: 200px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 140px;
+  color: rgba(255,255,255,.5);
+}
+
+/* APP */
+.app {
+  margin-top : 350px;
 }
