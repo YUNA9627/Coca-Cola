@@ -71,10 +71,17 @@ body {
 .top_nav nav ul li ul {
   display: none;
 }
-.top_nav > div.shrink {
+.top_nav div.shrink {
   display: flex;
   flex-direction: row;
   gap: 180px;
+}
+.top_nav nav.shrink {
+  color: var(--txt-color);
+}
+.top_nav #logo.shrink {
+  width: 246px;
+  height: 40px;
 }
 
 .main_banner {
