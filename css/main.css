@@ -57,6 +57,9 @@ body {
   color: var(--primary);
   font-weight: 700;
 }
+.top_nav nav ul li ul {
+  display: none;
+}
 .top_nav nav > ul > li:after {
   content: '>';
   margin-left: 5px;
