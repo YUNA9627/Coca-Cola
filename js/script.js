@@ -6,7 +6,7 @@ let largeLogo = 'img/Header_Top_LOGO_white.svg';
 let smallLogo = 'img/LOGO_red.svg';
 
 window.addEventListener('scroll',()=>{
-  if(window.scrollY > 900){
+  if(window.scrollY > 500){
     if(!nav_flex.classList.contains('shrink')){
       nav_flex.classList.add('shrink');
       changeLogo(smallLogo);
