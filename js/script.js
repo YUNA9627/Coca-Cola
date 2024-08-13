@@ -1,18 +1,15 @@
 let topNav = document.querySelector('.top_nav');
-let nav = document.querySelector('.top_nav div');
-let gnb = nav.querySelector('nav');
-let logo = nav.querySelector('#logo');
+let nav_flex = document.querySelector('.top_nav div');
+let logo = document.querySelector('.top_nav #logo');
+let gnb = document.querySelector('.top_nav nav ul li a');
 let largeLogo = 'img/Header_Top_LOGO_white.svg';
 let smallLogo = 'img/LOGO_red.svg';
 
 window.addEventListener('scroll',()=>{
-  if(window.scrollY > 1000){
-    if(!nav.classList.contains('shrink')){
-      nav.classList.add('shrink');
+  if(window.scrollY > 900){
+    if(!nav_flex.classList.contains('shrink')){
+      nav_flex.classList.add('shrink');
       changeLogo(smallLogo);
-    }
-    if(!gnb.classList.contains('shrink')){
-      gnb.classList.add('shrink');
     }
     if(!logo.classList.contains('shrink')){
       logo.classList.add('shrink');
@@ -20,11 +17,14 @@ window.addEventListener('scroll',()=>{
     if(!topNav.classList.contains('shrink')){
       topNav.classList.add('shrink');
     }
+    if(!gnb.classList.contains('shrink')){
+      gnb.classList.add('shrink');
+    }
     }else{
-      nav.classList.remove('shrink');
-      gnb.classList.remove('shrink');
+      nav_flex.classList.remove('shrink');
       logo.classList.remove('shrink');
       topNav.classList.remove('shrink');
+      gnb.classList.remove('shrink');
       changeLogo(largeLogo);
   }
 });
