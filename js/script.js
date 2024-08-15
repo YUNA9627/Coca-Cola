@@ -38,13 +38,13 @@ function changeLogo(url){
 }
 
 const bgItem = document.querySelector('.main_banner .bg_item');
-const cocaCola = document.querySelector('.main_banner .bg_item #coca-cola');
+const cocaCola = document.querySelector('.main_banner .bg_item .coca-cola');
 const coca = document.querySelector('.main_banner .bg_item #text-coca');
 const cola = document.querySelector('.main_banner .bg_item #text-cola');
 
 window.addEventListener('scroll',()=>{
   bgItem.style.top = `${window.scrollY}px`;
-  if(50 > bgItem.getBoundingClientRect().top){
+  if(0 > bgItem.getBoundingClientRect().top){
     bgItem.classList.add('fadeInOut');
   }else {
     bgItem.classList.remove('fadeInOut');
