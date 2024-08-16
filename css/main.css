@@ -251,7 +251,6 @@ width: 80px; height: 80px; background: var(--txt-color); border-radius: 50%; col
 .app .content {
   position: absolute;
   top: 0;
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
