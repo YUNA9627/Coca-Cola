@@ -67,6 +67,17 @@ slides.forEach((slide,idx)=>{
 function goToslide(num){
   slidesContainer.style.left = `${-num * 100}%`;
   currentIdx = num;
+
+  if(currentIdx === 0){
+    prevBtn.classList.add('disabled');
+  }else{
+    prevBtn.classList.remove('disabled');
+  }
+  if(currentIdx === slideCount - 1){
+    nextBtn.classList.add('disabled');
+  }else{
+    nextBtn.classList.remove('disabled');
+  }
 };
 
 nextBtn.addEventListener('click', ()=>{
@@ -76,11 +87,11 @@ prevBtn.addEventListener('click', ()=>{
   goToslide(currentIdx - 1);
 });
 
-goToslide(0);
-
 prevBtn.addEventListener('click',(e)=>{
   e.preventDefault();
 })
 nextBtn.addEventListener('click',(e)=>{
   e.preventDefault();
 })
+
+goToslide(0);
