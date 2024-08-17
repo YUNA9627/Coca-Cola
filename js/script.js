@@ -50,3 +50,37 @@ window.addEventListener('scroll',()=>{
     bgItem.classList.remove('fadeInOut');
   }
 });
+
+
+let slideWrapper = document.querySelector('.slide_wrapper');
+let slidesContainer = slideWrapper.querySelector('ul');
+let slides = slidesContainer.querySelectorAll('li');
+let slideCount = slides.length;
+let currentIdx = 0;
+let prevBtn = slideWrapper.querySelector('#prev');
+let nextBtn = slideWrapper.querySelector('#next');
+
+slides.forEach((slide,idx)=>{
+  slide.style.left = `${idx * 100}%`;
+});
+
+function goToslide(num){
+  slidesContainer.style.left = `${-num * 100}%`;
+  currentIdx = num;
+};
+
+nextBtn.addEventListener('click', ()=>{
+  goToslide(currentIdx + 1);
+});
+prevBtn.addEventListener('click', ()=>{
+  goToslide(currentIdx - 1);
+});
+
+goToslide(0);
+
+prevBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+})
+nextBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+})
