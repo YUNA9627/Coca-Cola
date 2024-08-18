@@ -219,12 +219,24 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   transition: 0.3s linear;
 }
 .brand .slide_wrapper ul li > div { height: 100%;}
+.brand .slide_wrapper .slide1 .contents:before {
+  content: '';
+  background: url(../img/brand_bg_logo_cocacola.svg); width: 757px; height: 240px;
+  position: absolute; top: 157px; left: 136px; z-index: -1;
+}
 .brand .slide_wrapper .slide2 .contents:before {
   content: '';
-  background: url(../img/brand_sprite_logo.svg) no-repeat;
+  background: url(../img/brand_bg_logo_sprite.svg) no-repeat;
   background-size: cover;
   width: 634px; height: 240px;
   position: absolute; top: 157px; left: 136px; z-index: -1;
+}
+.brand .slide_wrapper .slide3 .contents:before {
+  content: '';
+  background: url(../img/brand_bg_logo_powerade.svg) no-repeat;
+  background-size: cover;
+  width: 646px; height: 208px;
+  position: absolute; top: 198px; left: 136px; z-index: -1;
 }
 .brand .slide_wrapper li .contents {
   display: flex;
@@ -238,11 +250,6 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   height: 660px;
   transform: translateY(0);
   transition: 0.5s ease-in-out;
-}
-.brand .slide_wrapper .slide1 .contents:before {
-  content: '';
-  background: url(../img/brand_BG_LOGO.svg); width: 757px; height: 240px;
-  position: absolute; top: 157px; left: 136px; z-index: -1;
 }
 .brand .slide_wrapper li .contents .items {
   display: flex;
@@ -325,7 +332,8 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   align-items: flex-end;
   gap: 40px;
 }
-.app .content .desc_1 h3,a {
+.app .content .desc_1 h3,
+.app .content .desc_1 a {
   color: var(--white);
 }
 .app .content .desc_1 h3 {
@@ -366,12 +374,21 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 /* ======= MAIN - COMPANY ======= */
 .company {
-  position: relative;
   margin-top: 350px;
   width: 100%;
   height: 700px;
 }
-.company .bg:after {
+.company .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.company .content .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.company .content .bg:after {
   content: '';
   position: absolute;
   width: 100%;
@@ -381,10 +398,39 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   opacity: 0;
   transition: 0.3s linear;
 }
-.company .bg:hover:after {
+.company .content:hover .bg:after {
   opacity: 0.5;
 }
-.bg img{
+.company .content .container {
+  height: 100%;
+}
+.company .content .container .item {
+  position: absolute;
+  opacity: 0;
+  margin-top: 171px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  color: var(--white);
+  transition: 0.3s linear;
+}
+.company .content .container .item p {
+  width: 420px;
+  text-align: justify;
+}
+.company .content .container .item a {
+  color: var(--white);
+  font-size: 18px;
+  line-height: 20px;
+  border: 1px solid var(--white);
+  border-radius: 12px;
+  padding: 14px;
+}
+.company .content:hover .container .item {
+  opacity: 1;
+}
+.content .bg img{
   position: absolute;
   width: 100%;
   height: 100%;
