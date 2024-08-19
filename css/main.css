@@ -484,10 +484,13 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 .youtube h1 { margin-bottom: 124px;}
 .youtube .content {
-  position: absolute;
+  position: relative;
   background: var(--primary);
   width: 100%;
   height: 329px;
 }
+.youtube .content .container .video { position: absolute; bottom: 200px; display: flex; gap: 20px;
+}
+.youtube .content .container .video iframe { border-radius: 30px;}
 
 /* ======= FOOTER ====== */
