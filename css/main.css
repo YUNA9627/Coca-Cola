@@ -548,27 +548,31 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 .youtube .content .container .video iframe { border-radius: 30px;}
 
 
-header > a {
+.go_to_top {
   position: fixed;
-  color: var(--white);
+  color: var(--txt-color);
   bottom: 20px;
   right: 20px;
   z-index: 100;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s linear;
 }
-header > a .top {
+.go_to_top .top {
   width: 80px;
   line-height: 80px;
   font-size: 35px;
   text-align: center;
   border: 1px solid var(--white);
   border-radius: 50%;
+  margin-bottom: 14px;
 }
-header > a p {
-  font-size: 30px;
-  line-height: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
+.go_to_top.on {
+  opacity: 1;
 }
 
 /* ======= FOOTER ====== */
