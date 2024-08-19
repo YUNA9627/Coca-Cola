@@ -78,7 +78,7 @@ header { z-index: 10; }
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  padding-top: 48px;
+  padding-top: 49px;
   width: 100%;
   min-width: 200px;
   visibility: hidden;
@@ -92,15 +92,15 @@ header { z-index: 10; }
 .top_nav nav ul li .lnb:before {
   content: '';
   position: absolute;
-  top: 48px;
+  top: 49px;
   left: 0;
   right: 0;
   height: 0;
   background-color: var(--primary);
   transition: 0.3s ease-out;
 }
-.top_nav nav ul li:hover .lnb:before { height: 100%;}
-.top_nav .lnb ul { padding: 15px 0;}
+.top_nav nav ul li:hover .lnb:before { height: calc(100% - 49px);}
+.top_nav .lnb ul { padding: 20px 0;}
 .top_nav .lnb li { padding: 10px 10px;}
 .top_nav #logo { width: 370px; height: 60px;}
 
@@ -550,10 +550,25 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 header > a {
   position: fixed;
-  bottom: 0;
+  color: var(--white);
+  bottom: 20px;
   right: 20px;
-  border: 1px solid var(--white);
   z-index: 100;
+}
+header > a .top {
+  width: 80px;
+  line-height: 80px;
+  font-size: 35px;
+  text-align: center;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+header > a p {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 /* ======= FOOTER ====== */
