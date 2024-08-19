@@ -111,7 +111,7 @@ window.addEventListener('scroll',()=>{
   let fOffsetTop = document.querySelector('footer').offsetTop;
   
   if(window.scrollY >= fOffsetTop - window.innerHeight){
-    let bottom = window.scrollY - fOffsetTop + window.innerHeight
+    let bottom = window.scrollY - fOffsetTop + window.innerHeight + 20
     goToTop.style.bottom = bottom+'px';
   }else{
     goToTop.style.bottom = 20+'px';
