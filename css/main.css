@@ -550,7 +550,8 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 .go_to_top {
   position: fixed;
-  color: var(--txt-color);
+  color: var(--white);
+  background: var(--txt-color);
   bottom: 20px;
   right: 20px;
   z-index: 100;
@@ -559,17 +560,16 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
-  opacity: 0;
-  transition: 0.3s linear;
-}
-.go_to_top .top {
   width: 80px;
   line-height: 80px;
   font-size: 35px;
   text-align: center;
-  border: 1px solid var(--white);
   border-radius: 50%;
   margin-bottom: 14px;
+  opacity: 0;
+}
+.go_to_top:hover {
+  background: var(--primary);
 }
 .go_to_top.on {
   opacity: 1;
