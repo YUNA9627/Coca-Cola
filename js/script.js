@@ -95,3 +95,40 @@ nextBtn.addEventListener('click',(e)=>{
 })
 
 goToslide(0);
+
+
+// ------ top 버튼 ------
+const goToTop = document.querySelector('.go_to_top');
+
+window.addEventListener('scroll',()=>{
+  let scrollAmt = window.scrollY;
+  if(scrollAmt > 700){
+    goToTop.classList.add('on');
+  }else{
+    goToTop.classList.remove('on');
+  }
+  
+  let fOffsetTop = document.querySelector('footer').offsetTop;
+  
+  if(window.scrollY >= fOffsetTop - window.innerHeight){
+    let bottom = window.scrollY - fOffsetTop + window.innerHeight
+    goToTop.style.bottom = bottom+'px';
+  }else{
+    goToTop.style.bottom = 20+'px';
+  }
+  
+  console.log(window.scrollY);
+});
+
+goToTop.addEventListener('click',(e)=>{
+  e.preventDefault();
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: 'smooth'
+  });
+  
+})
+
+
+  
