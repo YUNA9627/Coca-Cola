@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="css/main.css">
   <title>Coca-Cola Website</title>
 </head>
@@ -91,7 +91,7 @@
                   <p>스포츠의 열정과 파워를 담은 저칼로리 스포츠음료</p>
                   <a href="">제품보기 ></a>
                 </div>
-                <img src="img/brand_powerade.png" alt="" id="sprite_bottle">
+                <img src="img/brand_powerade.png" alt="" id="powerade_bottle">
               </div>
             </div>
           </li>
@@ -163,17 +163,34 @@
         </section>
         <section class="youtube">
           <h1 class="container">youtube</h1>
-          <div class="content">
-            <div class="container">
-              <div class="button">
+          <div class="container">
+            <div class="controls container">
                 <a href="#" id="youtube-prev"><i class="fa-solid fa-chevron-left"></i></a>
                 <a href="#" id="youtube-next"><i class="fa-solid fa-chevron-right"></i></a>
-              </div>
-              <div class="video">
-                <iframe width="450" height="250" src="https://www.youtube.com/embed/Y8eSiUnePyA?si=qehtSnsAJ9qHXnJF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe width="450" height="250" src="https://www.youtube.com/embed/UV-E0hcKUJo?si=scvgUOpUZHkorvY7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe width="450" height="250" src="https://www.youtube.com/embed/O2KGYLupB5Y?si=szTPz5vMznCKOTBP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
+            </div>
+            <div class="slide-wrapper">
+              <ul class="slides">
+                <li class="video1" data-idx="0">
+                  <div class="contents">
+                    <iframe width="450" height="250" src="https://www.youtube.com/embed/Y8eSiUnePyA?si=qehtSnsAJ9qHXnJF" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <li class="video2" data-idx="1">
+                  <div class="contents">
+                    <iframe width="450" height="250" src="https://www.youtube.com/embed/UV-E0hcKUJo?si=scvgUOpUZHkorvY7" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <li class="video3" data-idx="2">
+                  <div class="contents">
+                    <iframe width="450" height="250" src="https://www.youtube.com/embed/O2KGYLupB5Y?si=szTPz5vMznCKOTBP" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="video4" data-idx="3">
+                  <div class="contents">
+                    <iframe width="450" height="250" src="https://www.youtube.com/embed/xGwqgR7ffFI?si=BR6XgmIlVDH0HczS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -184,7 +201,7 @@
           <a href=""></a>
         </div>
       </footer>
-      <a href="" class="go_to_top"><i class="fa-solid fa-angle-up"></i></a>
+      <a href="" class="go_to_top"><i class="fa-solid fa-arrow-up"></i></a>
       <script src="js/script.js"></script>
     </body>
     </html>
