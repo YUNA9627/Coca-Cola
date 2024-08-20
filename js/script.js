@@ -73,16 +73,14 @@ window.addEventListener('resize',()=>{
   setLayout();
 })
 
-for(let i =0; i < slideCount; i++){
+for(let i=0; i<slideCount; i++) {
   let cloneSlide = slides[i].cloneNode(true);
-  cloneSlide.classList.add('clone');
   slidesContainer.appendChild(cloneSlide);
-};
+}
 for(let s = slideCount - 1; s >= 0; s--){
   let cloneSlide = slides[s].cloneNode(true);
-  cloneSlide.classList.add('clone');
   slidesContainer.prepend(cloneSlide);
-};
+}
 
 let allslides = slidesContainer.querySelectorAll('li');
 
