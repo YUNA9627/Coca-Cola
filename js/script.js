@@ -51,7 +51,7 @@ window.addEventListener('scroll',()=>{
   }
 });
 
-
+// BRAND 슬라이드
 let slideWrapper = document.querySelector('.slide_wrapper');
 let slidesContainer = slideWrapper.querySelector('ul');
 let slides = slidesContainer.querySelectorAll('li');
@@ -59,8 +59,32 @@ let slideCount = slides.length;
 let currentIdx = 0;
 let prevBtn = slideWrapper.querySelector('#prev');
 let nextBtn = slideWrapper.querySelector('#next');
+let timer;
 
-slides.forEach((slide,idx)=>{
+function setLayout(){
+  let slideWidth = slideWrapper.offsetWidth;
+  slidesContainer.style.transform = `translateX(-${slideWidth*slideCount}px)`;
+}
+setLayout();
+
+window.addEventListener('resize',()=>{
+  setLayout();
+})
+
+for(let i =0; i<slideCount; i++){
+  let cloneSlide = slides[i].cloneNode(true);
+  cloneSlide.classList.add('clone');
+  slidesContainer.appendChild(cloneSlide);
+}
+for(let i = slideCount -1; i >= 0; i--){
+  let cloneSlide = slides[i].cloneNode(true);
+  cloneSlide.classList.add('clone');
+  slidesContainer.prepend(cloneSlide);
+}
+
+let allslides = slidesContainer.querySelectorAll('li');
+
+allslides.forEach((slide,idx)=>{
   slide.style.left = `${idx * 100}%`;
 });
 
@@ -68,15 +92,40 @@ function goToslide(num){
   slidesContainer.style.left = `${-num * 100}%`;
   currentIdx = num;
 
-  if(currentIdx === 0){
-    prevBtn.classList.add('disabled');
-  }else{
-    prevBtn.classList.remove('disabled');
+  for(let sl of allslides){
+    sl.classList.remove('active');
+  };
+  allslides[slideCount + num].classList.add('active');
+
+  if(currentIdx === -3){
+    for(let sl of allslides){
+      sl.classList.remove('active');
+    };
+    allslides[slideCount].classList.add('active');
+    
+    setTimeout(()=>{
+      slidesContainer.classList.remove('animated');
+      slidesContainer.style.left = 0;
+      currentIdx = 0;
+    }, 400);
+    setTimeout(()=>{
+      slidesContainer.classList.add('animated');
+    }, 500);
   }
-  if(currentIdx === slideCount - 1){
-    nextBtn.classList.add('disabled');
-  }else{
-    nextBtn.classList.remove('disabled');
+  if(currentIdx == slideCount*2-1){
+    for(let sl of allslides){
+      sl.classList.remove('active');
+    };
+    allslides[slideCount*2-1].classList.add('active');
+
+    setTimeout(()=>{
+      slidesContainer.classList.remove('animated');
+      slidesContainer.style.left = `${(slideCount-1)*-100}%`;
+      currentIdx = slideCount-1;
+    }, 400);
+    setTimeout(()=>{
+      slidesContainer.classList.add('animated');
+    }, 500);
   }
 };
 
@@ -95,6 +144,22 @@ nextBtn.addEventListener('click',(e)=>{
 })
 
 goToslide(0);
+
+function AutoSlide(){
+  timer = setInterval(()=>{
+    let nextIdx = (currentIdx + 1)% slideCount;
+    goToslide(nextIdx);
+  }, 5000);
+}
+
+AutoSlide();
+
+slideWrapper.addEventListener('mouseenter',()=>{
+  clearInterval(timer);
+})
+slideWrapper.addEventListener('mouseleave',()=>{
+  AutoSlide();
+})
 
 
 // ------ top 버튼 ------
