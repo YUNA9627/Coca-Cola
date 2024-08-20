@@ -23,7 +23,16 @@ body {
 }
 
 /* ======= HEADER ======= */
-header { z-index: 10; }
+header { z-index: 10;}
+
+.popup {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background: var(--white);
+  border: 5px solid var(--primary);
+}
+
 .top_nav {
   width: 100%; 
   position: fixed;
@@ -205,7 +214,7 @@ main h2 { font-size: 60px; font-weight: 700;}
 main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 /* ======= MAIN - BRAND ======= */
-.brand { padding-top : 350px; overflow: hidden;}
+.brand { padding-top : 250px; overflow: hidden;}
 .brand .slide_wrapper { height: 460px; position: relative;}
 .brand .slide_wrapper:after {
   content: '';
@@ -236,7 +245,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 .brand .slide_wrapper ul li > div>* {
   height: 100%;
   opacity: 0;
-  transition: 0.4s ease-in-out;
+  transition: 0.1s linear;
 }
 .brand .slide_wrapper ul li.active div>* {
   opacity: 1;
@@ -329,7 +338,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 /* ======= MAIN - APP ======= */
 .app {
   position: relative;
-  margin-top : 350px;
+  margin-top : 250px;
   width: 100%;
   height: 300px;
   overflow: hidden;
@@ -399,7 +408,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 /* ======= MAIN - COMPANY ======= */
 .company {
-  margin-top: 350px;
+  margin-top: 250px;
   width: 100%;
   height: 700px;
 }
@@ -464,9 +473,10 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 /* ======= MAIN - SUSTAINABILITY ======= */
 .sustainability {
-  margin-top: 350px;
+  margin-top: 390px;
 }
 .sustainability .banner {
+  position: relative;
   display: flex;
   justify-content: center;
   height: 429px;
@@ -474,7 +484,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 .sustainability .banner .content {
   position: relative;
   width: 574px;
-  height: 429px;
+  height: 100%;
 }
 .sustainability .banner .content:before {
   content: '';
@@ -522,7 +532,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 
 /* ======= MAIN - YOUTUBE ====== */
-.youtube { margin-top: 350px; position: relative; height: 593px;}
+.youtube { margin-top: 250px; position: relative; height: 593px;}
 .youtube:before {
   content: '';
   position: absolute;
@@ -601,3 +611,65 @@ footer {
   position: absolute;
   z-index: 21;
 }
+footer > div { padding: 60px 0;}
+footer > div .top { display: flex; justify-content: space-between;}
+footer > div .top img { height: 40px;}
+footer > div .top a {
+  color: var(--white);
+  background: rgba(255,255,255,0);
+  font-size: 18px;
+  border: 1px solid var(--white);
+  padding: 10px 30px;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.2s ease-in;
+}
+footer > div .top a:hover {
+  background: rgba(255,255,255,.2);
+}
+footer > div .top a > i { font-size: 20px; line-height: 20px;}
+footer > div .box {
+  margin: 20px 0;
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer > div .box .address p:first-child { margin-bottom: 20px;}
+footer > div .box .address p em { margin-right: 10px;}
+footer > div .box .link {
+  display: flex;
+  gap: 40px;
+}
+footer > div .box .link ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 1px solid rgba(255,255,255,.5);
+  padding: 0 40px;
+}
+footer > div .box .link ul li a {
+  color: var(--white)
+}
+footer > div .sns {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+footer > div .sns a {
+  background: rgba(255,255,255,0);
+  color: var(--white);
+  font-size: 20px;
+  width: 40px;
+  line-height: 40px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  text-align: center;
+  transition: 0.2s ease-in;
+}
+footer > div .sns a:hover { background: rgba(255,255,255,.2);}
