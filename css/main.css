@@ -49,6 +49,10 @@ header { z-index: 10; }
   line-height: 20px;
   font-weight: 400;
 }
+.top_nav nav > ul.animated {
+  left: 0;
+  transition: left 0.3s;
+}
 .top_nav nav ul li a {
   color: var(--white);
   transition: 0.3s;
@@ -229,7 +233,14 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   left: 0;
   transition: 0.3s linear;
 }
-.brand .slide_wrapper ul li > div { height: 100%;}
+.brand .slide_wrapper ul li > div>* {
+  height: 100%;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+.brand .slide_wrapper ul li.active div>* {
+  opacity: 1;
+}
 .brand .slide_wrapper .slide1 .contents:before {
   content: '';
   background: url(../img/brand_bg_logo_cocacola.svg); width: 757px; height: 240px;
@@ -295,7 +306,10 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 #prev { left: 100px;}
 #next { right: 100px;}
-#prev.disabled, #next.disabled { display: none;}
+.brand .slide_wrapper ul.animated {
+  left: 0;
+  transition: left 0.3s;
+}
 
 .brand .slide_wrapper ul:hover .slide1 { background: var(--primary); color: var(--white);}
 .brand .slide_wrapper ul:hover .slide2 { background: #17994B; color: var(--white);}
