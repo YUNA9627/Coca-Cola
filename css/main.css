@@ -540,10 +540,10 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   display: flex;
   gap: 12.9px;
   position: relative;
+  transition: 0.3s;
 }
 .slides.animated {
 	left: 0;
-	transition: 0.3s;
 }
 .youtube iframe { border-radius: 30px;}
 .youtube .controls {
