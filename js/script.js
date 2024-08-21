@@ -63,6 +63,19 @@ let prevBtn = slideWrapper.querySelector('#prev');
 let nextBtn = slideWrapper.querySelector('#next');
 let timer;
 
+function debounce(callback, time){
+  let slideTrigger = true;
+  return (e)=>{
+    if(slideTrigger) {
+      callback(e);
+      slideTrigger = false;
+      setTimeout(()=>{
+        slideTrigger = true;
+      }, time)
+    }
+  };
+}
+
 function setLayout(){
   let slideWidth = slideWrapper.offsetWidth;
   slidesContainer.style.transform = `translateX(-${slideWidth*slideCount}px)`;
@@ -73,11 +86,11 @@ window.addEventListener('resize',()=>{
   setLayout();
 })
 
-for(let i=0; i<slideCount; i++) {
+for (let i = 0; i < slideCount; i++) {
   let cloneSlide = slides[i].cloneNode(true);
   slidesContainer.appendChild(cloneSlide);
 }
-for(let s = slideCount - 1; s >= 0; s--){
+for (let s = slideCount - 1; s >= 0; s--) {
   let cloneSlide = slides[s].cloneNode(true);
   slidesContainer.prepend(cloneSlide);
 }
@@ -98,57 +111,56 @@ function goToslide(num){
   };
   allslides[slideCount + num].classList.add('active');
 
-  if(currentIdx === -3){
+  if(num >= slideCount){
     for(let sl of allslides){
       sl.classList.remove('active');
     };
     allslides[slideCount].classList.add('active');
+    currentIdx = slideCount;
     
     setTimeout(()=>{
+      slidesContainer.style.transition = 'none';
       slidesContainer.classList.remove('animated');
       slidesContainer.style.left = 0;
       currentIdx = 0;
-    }, 500);
+    }, 300);
     setTimeout(()=>{
+      slidesContainer.style.transition = 'left 0.3s';
       slidesContainer.classList.add('animated');
-    }, 600);
-
-    
+    }, 310);
   }
-  if(currentIdx == slideCount*2-1){
-    for(let sl of allslides){
-      sl.classList.remove('active');
-    };
-    allslides[slideCount*2-1].classList.add('active');
 
-    setTimeout(()=>{
+  if (currentIdx === slideCount - 1) {
+    setTimeout(() => {
       slidesContainer.classList.remove('animated');
-      slidesContainer.style.left = `${(slideCount-1)*-100}%`;
-      currentIdx = slideCount-1;
-    }, 500);
-    setTimeout(()=>{
+      slidesContainer.style.left = `${(slideCount - 1) * -100}%`;
+      currentIdx = slideCount - 1;
+    }, 300);
+    
+    setTimeout(() => {
       slidesContainer.classList.add('animated');
-    }, 600);
+    }, 310);
   }
-};
-
-nextBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  goToslide(currentIdx + 1);
-});
-prevBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  goToslide(currentIdx - 1);
-});
-
+}
 goToslide(0);
 
-// function AutoSlide(){
-//   timer = setInterval(()=>{
-//     let nextIdx = (currentIdx + 1)% slideCount;
-//     goToslide(nextIdx);
-//   }, 5000);
-// }
+
+nextBtn.addEventListener('click',debounce((e)=>{
+  e.preventDefault();
+  goToslide(currentIdx + 1);
+}, 300));
+
+prevBtn.addEventListener('click',debounce((e)=>{
+  e.preventDefault();
+  goToslide(currentIdx - 1);
+}, 300));
+
+function AutoSlide(){
+  timer = setInterval(()=>{
+    let nextIdx = (currentIdx + 1)% slideCount;
+    goToslide(nextIdx);
+  }, 5000);
+}
 
 // AutoSlide();
 
