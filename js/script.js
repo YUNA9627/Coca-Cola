@@ -88,6 +88,7 @@ allslides.forEach((slide,idx)=>{
   slide.style.left = `${idx * 100}%`;
 });
 
+
 function goToslide(num){
   slidesContainer.style.left = `${-num * 100}%`;
   currentIdx = num;
@@ -107,10 +108,12 @@ function goToslide(num){
       slidesContainer.classList.remove('animated');
       slidesContainer.style.left = 0;
       currentIdx = 0;
-    }, 400);
+    }, 500);
     setTimeout(()=>{
       slidesContainer.classList.add('animated');
-    }, 500);
+    }, 600);
+
+    
   }
   if(currentIdx == slideCount*2-1){
     for(let sl of allslides){
@@ -122,44 +125,39 @@ function goToslide(num){
       slidesContainer.classList.remove('animated');
       slidesContainer.style.left = `${(slideCount-1)*-100}%`;
       currentIdx = slideCount-1;
-    }, 400);
+    }, 500);
     setTimeout(()=>{
       slidesContainer.classList.add('animated');
-    }, 500);
+    }, 600);
   }
 };
 
-nextBtn.addEventListener('click', ()=>{
+nextBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
   goToslide(currentIdx + 1);
 });
-prevBtn.addEventListener('click', ()=>{
+prevBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
   goToslide(currentIdx - 1);
 });
 
-prevBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-})
-nextBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-})
-
 goToslide(0);
 
-function AutoSlide(){
-  timer = setInterval(()=>{
-    let nextIdx = (currentIdx + 1)% slideCount;
-    goToslide(nextIdx);
-  }, 5000);
-}
+// function AutoSlide(){
+//   timer = setInterval(()=>{
+//     let nextIdx = (currentIdx + 1)% slideCount;
+//     goToslide(nextIdx);
+//   }, 5000);
+// }
 
-AutoSlide();
+// AutoSlide();
 
-slideWrapper.addEventListener('mouseenter',()=>{
-  clearInterval(timer);
-})
-slideWrapper.addEventListener('mouseleave',()=>{
-  AutoSlide();
-})
+// slideWrapper.addEventListener('mouseenter',()=>{
+//   clearInterval(timer);
+// })
+// slideWrapper.addEventListener('mouseleave',()=>{
+//   AutoSlide();
+// })
 
 // ------ YOUTUBE 슬라이드 ------
 let yslideWrapper = document.querySelector('.youtube .slide-wrapper');
@@ -229,6 +227,14 @@ ynext.addEventListener('click',(e)=>{
 yprev.addEventListener('click',(e)=>{
   e.preventDefault();
 })
+
+function AutoSlide2(){
+  timer = setInterval(()=>{
+    let nextIdx = (currentIdx + 1)% yslideCount;
+    moveSlide(nextIdx);
+  }, 4000);
+}
+AutoSlide2();
 
 // ------ top 버튼 ------
 const goToTop = document.querySelector('.go_to_top');
