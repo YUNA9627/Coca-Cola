@@ -259,5 +259,45 @@ goToTop.addEventListener('click',(e)=>{
   });
 });
 
+// ------ COOKIE ------
 
+const popup = document.querySelector('.popup');
+const check = document.querySelector('#check');
+const button = document.querySelector('.cookie button');
+
+button.addEventListener('click',()=>{
+  console.log('버튼 클릭됨!');
+  console.log(check.checked);
+  if(check.checked){
+    setCoockie('Company','ABC',1);
+  }else{
+    delCookie('Company','ABC');
+  }
+  popup.classList.remove('show');
+});
+
+function setCoockie(name,val,due){
+  let date = new Date();
+    date.setDate(date.getDate() + due);
+
+  let myCookie = `${name}=${val};expires=`+date.toUTCString();
+    document.cookie = myCookie;
+}
+
+function delCookie(name,val){
+  let date = new Date();
+    date.setDate(date.getDate() - 1);
+
+  let myCookie = `${name}=${val};expires=`+date.toUTCString();
+    document.cookie = myCookie;
+}
+
+
+function checkCookie(name,val){
+  console.log(document.cookie);
+  if(document.cookie.search(`${name}=${val}`) === -1){
+    popup.classList.add('show');
+  }
+}
+checkCookie('company','ABC');
   
