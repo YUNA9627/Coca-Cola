@@ -70,7 +70,7 @@ hr { border: none; border-bottom: 1px solid var(--primary);}
   margin-top: 60px;
   padding: 0 10px;
 }
-.popup .cookie label { font-size: 16px;}
+.popup .cookie label { font-size: 16px; font-weight: 500;}
 #check {
   width: 13px;
   height: 13px;
@@ -273,7 +273,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 
 /* ======= MAIN - BRAND ======= */
 .brand { padding-top : 250px; overflow: hidden;}
-.brand .slide_wrapper { height: 460px; position: relative;}
+.brand .slide_wrapper { height: 460px; position: relative; width: 100%;}
 .brand .slide_wrapper:after {
   content: '';
   background: #EAEAE9;
@@ -601,13 +601,15 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 .youtube .slide-wrapper {
   position: relative;
-  width: 100%;
+  width: 1378px;
   overflow: hidden;
+  margin: 0 auto;
 }
 .slides {
   display: flex;
-  gap: 12.9px;
+  gap: 12px;
   position: relative;
+  margin: 0 auto;
   transition: 0.3s;
 }
 .slides.animated {
