@@ -126,7 +126,7 @@ function goToslide(num){
     setTimeout(()=>{
       slidesContainer.style.transition = 'left 0.3s';
       slidesContainer.classList.add('animated');
-    }, 310);
+    }, 400);
   }
 
   if (currentIdx === slideCount - 1) {
@@ -138,7 +138,7 @@ function goToslide(num){
     
     setTimeout(() => {
       slidesContainer.classList.add('animated');
-    }, 310);
+    }, 400);
   }
 }
 goToslide(0);
