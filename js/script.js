@@ -101,7 +101,6 @@ allslides.forEach((slide,idx)=>{
   slide.style.left = `${idx * 100}%`;
 });
 
-
 function goToslide(num){
   slidesContainer.style.left = `${-num * 100}%`;
   currentIdx = num;
@@ -177,7 +176,7 @@ let yslidesContainer = yslideWrapper.querySelector('.slides');
 let yslides = yslidesContainer.querySelectorAll('li');
 let yslideCount = yslides.length;
 let yslideWidth = 450;
-let yslideGap = 10;
+let yslideGap = 20;
 let ymaxSlides = 3;
 let ynext = document.querySelector('#youtube-next');
 let yprev = document.querySelector('#youtube-prev');
@@ -248,12 +247,16 @@ function AutoSlide2(){
 }
 AutoSlide2();
 
+
 // ------ top 버튼 ------
+
 const goToTop = document.querySelector('.go_to_top');
 
 window.addEventListener('scroll',()=>{
   let scrollAmt = window.scrollY;
   if(scrollAmt > 700){
+    goToTop.style.transition = 'opacity 0.3s linear';
+    goToTop.style.transition = 'right 0.5s';
     goToTop.classList.add('on');
   }else{
     goToTop.classList.remove('on');
@@ -264,7 +267,7 @@ window.addEventListener('scroll',()=>{
     let bottom = window.scrollY - fOffsetTop + window.innerHeight + 20
     goToTop.style.bottom = bottom+'px';
   }else{
-    goToTop.style.bottom = 20+'px';
+    goToTop.style.bottom = 50+'px';
   }
 })
 
@@ -283,39 +286,40 @@ const popup = document.querySelector('.popup');
 const check = document.querySelector('#check');
 const button = document.querySelector('.cookie button');
 
-button.addEventListener('click',()=>{
+button.addEventListener('click', () => {
   console.log('버튼 클릭됨!');
   console.log(check.checked);
-  if(check.checked){
-    setCoockie('Company','ABC',1);
-  }else{
-    delCookie('Company','ABC');
+  if (check.checked) {
+    setCookie('popup-dismissed', 'true', 1);
+  } else {
+    delCookie('popup-dismissed');
   }
   popup.classList.remove('show');
 });
 
-function setCoockie(name,val,due){
+function setCookie(name, val, days) {
   let date = new Date();
-    date.setDate(date.getDate() + due);
+  date.setDate(date.getDate() + days);
 
-  let myCookie = `${name}=${val};expires=`+date.toUTCString();
-    document.cookie = myCookie;
+  let cookieString = `${name}=${val};expires=${date.toUTCString()};path=/`;
+  document.cookie = cookieString;
 }
 
-function delCookie(name,val){
+function delCookie(name) {
   let date = new Date();
-    date.setDate(date.getDate() - 1);
+  date.setDate(date.getDate() - 1);
 
-  let myCookie = `${name}=${val};expires=`+date.toUTCString();
-    document.cookie = myCookie;
+  let cookieString = `${name}=;expires=${date.toUTCString()};path=/`;
+  document.cookie = cookieString;
 }
 
-
-function checkCookie(name,val){
-  console.log(document.cookie);
-  if(document.cookie.search(`${name}=${val}`) === -1){
+function checkCookie(name) {
+  const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+  const cookieFound = cookies.some(cookie => cookie.startsWith(`${name}=`));
+  
+  if (!cookieFound) {
     popup.classList.add('show');
   }
 }
-checkCookie('company','ABC');
-  
+
+checkCookie('popup-dismissed');
