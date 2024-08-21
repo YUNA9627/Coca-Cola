@@ -288,6 +288,8 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   height:100%;
   margin:0;
   padding: 0;
+}
+.brand .slide_wrapper ul.animated {
   left: 0;
   transition: left 0.3s;
 }
@@ -300,12 +302,12 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
   left: 0;
   transition: 0.3s linear;
 }
-.brand .slide_wrapper ul li > div>* {
+.brand .slide_wrapper ul li div {
   height: 100%;
   opacity: 0;
-  transition: 0.1s linear;
+  transition: opacity 0.2s 0.4s ease-in-out;
 }
-.brand .slide_wrapper ul li.active div>* {
+.brand .slide_wrapper ul li.active div {
   opacity: 1;
 }
 .brand .slide_wrapper .slide1 .contents:before {
@@ -373,10 +375,6 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 #prev { left: 100px;}
 #next { right: 100px;}
-.brand .slide_wrapper ul.animated {
-  left: 0;
-  transition: left 0.3s;
-}
 
 .brand .slide_wrapper ul:hover .slide1 { background: var(--primary); color: var(--white);}
 .brand .slide_wrapper ul:hover .slide2 { background: #17994B; color: var(--white);}
