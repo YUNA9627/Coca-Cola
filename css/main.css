@@ -646,6 +646,10 @@ footer > div .box .link {
   display: flex;
   gap: 40px;
 }
+footer > div .box em {
+  font-weight: 700;
+  color: rgba(255,255,255,.3);
+}
 footer > div .box .link ul {
   display: flex;
   flex-direction: column;
@@ -653,8 +657,17 @@ footer > div .box .link ul {
   border-left: 1px solid rgba(255,255,255,.5);
   padding: 0 40px;
 }
+footer > div .box .link > ul {
+  font-weight: 700;
+  color: rgba(255,255,255,.3); 
+}
+footer > div .box .link ul li {
+  display: flex;
+  gap: 15px;
+}
 footer > div .box .link ul li a {
-  color: var(--white)
+  color: var(--white);
+  font-weight: 400;
 }
 footer > div .sns {
   display: flex;
