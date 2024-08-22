@@ -71,7 +71,7 @@ function debounce(callback, time){
       slideTrigger = false;
       setTimeout(()=>{
         slideTrigger = true;
-      }, time)
+      }, time);
     }
   };
 }
@@ -161,14 +161,14 @@ function AutoSlide(){
   }, 5000);
 }
 
-// AutoSlide();
+AutoSlide();
 
-// slideWrapper.addEventListener('mouseenter',()=>{
-//   clearInterval(timer);
-// })
-// slideWrapper.addEventListener('mouseleave',()=>{
-//   AutoSlide();
-// })
+slideWrapper.addEventListener('mouseenter',()=>{
+  clearInterval(timer);
+})
+slideWrapper.addEventListener('mouseleave',()=>{
+  AutoSlide();
+})
 
 // ------ YOUTUBE 슬라이드 ------
 let yslideWrapper = document.querySelector('.youtube .slide-wrapper');
