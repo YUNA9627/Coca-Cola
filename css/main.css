@@ -614,7 +614,7 @@ main p { font-size: 20px; width: 214px; text-align: right; line-height: 30px;}
 }
 
 /* ======= MAIN - YOUTUBE ======= */
-.youtube { margin-top: var(--mt); position: relative; height: 500px;}
+.youtube { margin-top: 160px; position: relative; height: 500px;}
 .youtube:before {
   content: '';
   position: absolute;
@@ -786,3 +786,11 @@ footer > div .sns a {
   transition: 0.2s ease-in;
 }
 footer > div .sns a:hover { background: rgba(255,255,255,.2);}
+
+/* ====== 반응형 ====== */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .top_nav nav { display: none;}
+  .top_nav .container { width: 100%;}
+  .sustainability .banner { width: 100%;}
+  footer .container { width: 100%;}
+}
